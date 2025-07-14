@@ -1,0 +1,67 @@
+[
+  {
+    "id": 1,
+    "nome": "DevBurger Clássico",
+    "ingredientes": "Pão brioche, Carne 150g, Queijo cheddar, Alface americana, Tomate fresco, Molho especial"
+  },
+  {
+    "id": 2,
+    "nome": "Burger de Bacon",
+    "ingredientes": "Pão australiano, Carne 180g, Queijo prato, Bacon crocante, Cebola caramelizada, Molho barbecue"
+  },
+  {
+    "id": 3,
+    "nome": "Commit Veggie",
+    "ingredientes": "Pão integral, Burger de grão de bico, Queijo vegano, Rúcula, Tomate seco, Maionese de ervas"
+  },
+  {
+    "id": 4,
+    "nome": "Trufado Supremo",
+    "ingredientes": "Pão brioche, Burger Angus 180g, Queijo gruyère, Cogumelos salteados na manteiga trufada, Rúcula fresca, Aioli de alho negro"
+  },
+  {
+    "id": 5,
+    "nome": "Brie & Bacon",
+    "ingredientes": "Pão australiano, Burger bovino 160g, Queijo brie derretido, Cebola caramelizada, Bacon crocante, Maionese artesanal"
+  },
+  {
+    "id": 6,
+    "nome": "Pecado do Cerrado",
+    "ingredientes": "Pão de milho, Burger de costela 170g, Queijo meia-cura, Geleia de pimenta biquinho, Alface americana, Maionese de pequi"
+  },
+  {
+    "id": 7,
+    "nome": "Italiano Selvagem",
+    "ingredientes": "Pão ciabatta, Burger blend bovino 180g, Queijo provolone, Tomate confit, Pesto de manjericão, Rúcula"
+  },
+  {
+    "id": 8,
+    "nome": "Doce & Fumaça",
+    "ingredientes": "Pão de malte, Burger defumado 160g, Cheddar inglês, Cebola roxa caramelizada no melado, Barbecue de whisky, Alface roxa"
+  },
+  {
+    "id": 9,
+    "nome": "Cabra da Serra",
+    "ingredientes": "Pão integral, Burger de cordeiro 150g, Queijo de cabra, Folhas de hortelã, Tomate grelhado, Maionese de limão siciliano"
+  },
+  {
+    "id": 10,
+    "nome": "Tex-Mex Deluxe",
+    "ingredientes": "Pão de milho com pimenta, Burger bovino 170g, Queijo cheddar, Guacamole, Nachos crocantes, Sour cream, Pimenta jalapeño"
+  },
+  {
+    "id": 11,
+    "nome": "Paris No Fogo",
+    "ingredientes": "Pão de parmesão, Burger de mignon 160g, Queijo camembert, Cogumelo paris flambado, Molho béarnaise, Folhas verdes"
+  },
+  {
+    "id": 12,
+    "nome": "Veggie Royal",
+    "ingredientes": "Pão vegano de batata doce, Burger de grão-de-bico e quinoa, Queijo vegano, Abobrinha grelhada, Tomate seco, Maionese vegana de ervas"
+  },
+  {
+    "id": 13,
+    "nome": "Blue Moon Burger",
+    "ingredientes": "Pão de cebola, Burger bovino 180g, Queijo gorgonzola, Pera grelhada no mel, Rúcula selvagem, Maionese de mostarda e mel"
+  }
+]
