@@ -11,31 +11,36 @@
 <body>
     <header>
         <img src="/images/hamburger.svg" alt="Logo com desenho de Hambúrguer da DevBurger" id="logoImg">
-        <h3>DevBurger</h3>
+        <h2>DevBurger</h2>
         <h6></h6><a href="/contato">Contato</a></h6>
     </header>
-    <div>
-        <h1 class="titulo">Cardápio DevBurger</h1>
-        <table id="tableCardapio">
-            <tr>
-                <th>Hambúrguer</th>
-                <th>Ingredientes</th>
-            </tr>
-        </table>
-    </div>
 
-    <h1 class="titulo">Sugira um novo sabor de Hambúrguer Gourmet</h1>
-    <form action="/sugestao" method="GET">
-        <div>
-            <label for="nome">Seu nome:</label>
-            <input type="text" name="nome" id="nome" size="40" required>
+    <main>
+        <div class="divCentro">
+            <h1 class="titulo">Cardápio DevBurger</h1>
+            <table id="tableCardapio">
+                <tr>
+                    <th>Hambúrguer</th>
+                    <th>Ingredientes</th>
+                </tr>
+            </table>
         </div>
-        <div>
-            <label for="ingredientes">Ingredientes sugeridos:</label>
-            <textarea rows="6" cols="50" name="ingredientes" id="ingredientes" required></textarea>
+
+        <div class="divCentro">
+            <h1 class="titulo">Sugira um novo sabor de Hambúrguer Gourmet</h1>
+            <form action="/sugestao" method="GET">
+                <div>
+                    <label for="nome">Seu nome:</label>
+                    <input type="text" name="nome" id="nome" size="40" required>
+                </div>
+                <div>
+                    <label for="ingredientes">Ingredientes sugeridos:</label>
+                    <textarea rows="10" cols="90" name="ingredientes" id="ingredientes" required></textarea>
+                </div>
+                <button type="submit">Enviar</button>
+            </form>
         </div>
-        <button type="submit">Enviar</button>
-    </form>
+    </main>
     <footer>
         <p>Todos os direitos reservados à DevBurger</p>
         <p>©2025</p>

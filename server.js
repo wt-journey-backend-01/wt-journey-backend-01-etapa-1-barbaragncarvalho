@@ -22,16 +22,22 @@ app.get('/sugestao', (requisicao, resposta) => {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agradecimento</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
     <header>
-        <img src="../public/images/hamburger.svg" alt="Logo com desenho de Hambúrguer da DevBurger">
+        <img src="/images/hamburger.svg" alt="Logo com desenho de Hambúrguer da DevBurger" id="logoImg">
+        <h2>DevBurger</h2>
         <h6></h6><a href="/contato">Contato</a></h6>
     </header>
-    <h1>Obrigado, ${nome}!</h1>
-        <p>Recebemos sua sugestão de hambúrguer com os seguintes ingredientes:</p>
-        <p>${ingredientes}</p>
-      <a href="/">Voltar para a página inicial</a>
+    <main>
+        <div class="divCentro">
+            <h1>Obrigado, ${nome}!</h1>
+                <p>Recebemos sua sugestão de hambúrguer com os seguintes ingredientes:</p>
+                <p>${ingredientes}</p>
+            <a href="/">Voltar para a página inicial</a>
+        </div>
+    </main>
       <footer>
         <p>Todos os direitos reservados à DevBurger</p>
         <p>©2025</p>
@@ -42,7 +48,7 @@ app.get('/sugestao', (requisicao, resposta) => {
 });
 
 app.get('/not-found', (requisicao, resposta) => {
-    resposta.status(404).sendFile(path.join(__dirname, '404.html'));
+    resposta.status(404).sendFile(path.join(__dirname, 'public', '404.html'));
 });
 
 app.get('/contato', (requisicao, resposta) => {
@@ -53,7 +59,7 @@ app.post('/contato', (requisicao, resposta) => {
     const { nome, email, assunto, mensagem } = requisicao.body;
 
     if (!nome || !email || !assunto || !mensagem) {
-        return resposta.status(400).sendFile(path.join(__dirname, '404.html'));
+        return resposta.status(400).sendFile(path.join(__dirname, 'public', '404.html'));
     }
 
     resposta.send(`
@@ -63,17 +69,23 @@ app.post('/contato', (requisicao, resposta) => {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contato recebido</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
     <header>
-        <img src="../public/images/hamburger.svg" alt="Logo com desenho de Hambúrguer da DevBurger">
+        <img src="/images/hamburger.svg" alt="Logo com desenho de Hambúrguer da DevBurger" id="logoImg">
+        <h2>DevBurger</h2>
         <h6></h6><a href="/contato">Contato</a></h6>
     </header>
-        <h1>Contato recebido! Obrigado, ${nome}.</h1>
-        <p><strong>Seu e-mail: </strong>${email}</p>
-        <p><strong>Assunto:</strong> ${assunto}</p>
-        <p><strong>Mensagem:</strong> ${mensagem}</p>
-        <a href="/contato">Voltar ao formulário de contato</a>
+    <main>
+        <div class="divCentro">
+            <h1>Contato recebido! Obrigado, ${nome}.</h1>
+            <p><strong>Seu e-mail: </strong>${email}</p>
+            <p><strong>Assunto:</strong> ${assunto}</p>
+            <p><strong>Mensagem:</strong> ${mensagem}</p>
+            <a href="/contato">Voltar ao formulário de contato</a>
+        </div>
+    </main>
     <footer>
         <p>Todos os direitos reservados à DevBurger</p>
         <p>©2025</p>
@@ -85,6 +97,10 @@ app.post('/contato', (requisicao, resposta) => {
 
 app.get('/api/lanches', (requisicao, resposta) => {
     resposta.status(200).json(lanches);
+});
+
+app.use((requisicao, resposta) => {
+  resposta.redirect('/not-found');
 });
 
 app.listen(port, () => { //indica onde o servidor roda

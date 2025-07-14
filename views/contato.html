@@ -5,38 +5,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contato</title>
-    <link rel="stylesheet" href="../public/css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
     <header>
-        <img src="../public/images/hamburger.svg" alt="Logo com desenho de Hambúrguer da DevBurger">
-        <h3>DevBurger</h3>
-        <h6></h6><a href="index.html">Home</a></h6>
+        <img src="/images/hamburger.svg" alt="Logo com desenho de Hambúrguer da DevBurger" id="logoImg">
+        <h2>DevBurger</h2>
+        <h6></h6><a href="/">Home</a></h6>
     </header>
 
-    <h1 class="titulo">Contato</h1>
+    <main>
+        <div class="divCentro">
+            <h1 class="titulo">Contato</h1>
 
-    <form action="/contato" method="POST">
-        <div>
-            <label for="nome">Nome:</label>
-            <input type="text" name="nome" id="nome" size="50" required>
+            <form action="/contato" method="POST">
+                <div>
+                    <label for="nome">Nome:</label>
+                    <input type="text" name="nome" id="nome" size="50" required>
+                </div>
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" id="email" placeholder="seuemail@email.com" size="50" required>
+                </div>
+                <div>
+                    <label for="assunto">Assunto:</label>
+                    <input type="text" name="assunto" id="assunto" size="50" required>
+                </div>
+                <div>
+                    <label for="mensagem">Mensagem:</label>
+                    <textarea rows="6" cols="50" name="mensagem" id="mensagem" required></textarea>
+                </div>
+                <button type="submit">Enviar</button>
+            </form>
         </div>
-        <div>
-            <label for="email">Email:</label>
-            <input type="email" name="email" id="email" placeholder="seuemail@email.com" size="50" required>
-        </div>
-        <div>
-            <label for="assunto">Assunto:</label>
-            <input type="text" name="assunto" id="assunto" size="50" required>
-        </div>
-        <div>
-            <label for="mensagem">Mensagem:</label>
-            <textarea rows="6" cols="50" name="mensagem" id="mensagem" required></textarea>
-        </div>
-        <button type="submit">Enviar</button>
-    </form>
-
+    </main>
     <footer>
         <p>Todos os direitos reservados à DevBurger</p>
         <p>©2025</p>
