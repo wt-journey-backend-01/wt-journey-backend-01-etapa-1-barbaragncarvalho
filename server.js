@@ -9,13 +9,18 @@ app.use(express.static(path.join(__dirname, 'public'))); //disponibiliza arquivo
 app.use(express.static(path.join(__dirname, 'views')));
 app.use(express.urlencoded({ extended: true })); //
 
-app.get('/', (requisicao, resposta) => { //caso seja feita requisição get, retorna essa resposta
-    resposta.sendFile(path.join(__dirname, 'views', 'index.html'));
-});
+app.route('/')
+    .get((requisicao, resposta) => { //caso seja feita requisição get, retorna essa resposta
+        resposta.sendFile(path.join(__dirname, 'views', 'index.html'));
+    })
+    .all((requisicao, resposta) => {
+        resposta.status(405).send('Método não permitido');
+    });
 
-app.get('/sugestao', (requisicao, resposta) => {
-    const { nome, ingredientes } = requisicao.query;
-    resposta.send(`
+app.route('/sugestao')
+    .get((requisicao, resposta) => {
+        const { nome, ingredientes } = requisicao.query;
+        resposta.send(`
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -45,24 +50,27 @@ app.get('/sugestao', (requisicao, resposta) => {
 </body>
 </html>
         `);
-});
+    })
+    .all((requisicao, resposta) => {
+        resposta.status(405).send('Método não permitido');
+    });
 
 app.get('/not-found', (requisicao, resposta) => {
     resposta.status(404).sendFile(path.join(__dirname, 'public', '404.html'));
 });
 
-app.get('/contato', (requisicao, resposta) => {
-    resposta.sendFile(path.join(__dirname, 'views', 'contato.html'));
-});
+app.route('/contato')
+    .get((requisicao, resposta) => {
+        resposta.sendFile(path.join(__dirname, 'views', 'contato.html'));
+    })
+    .post((requisicao, resposta) => {
+        const { nome, email, assunto, mensagem } = requisicao.body;
 
-app.post('/contato', (requisicao, resposta) => {
-    const { nome, email, assunto, mensagem } = requisicao.body;
+        if (!nome || !email || !assunto || !mensagem) {
+            return resposta.status(400).sendFile(path.join(__dirname, 'public', '404.html'));
+        }
 
-    if (!nome || !email || !assunto || !mensagem) {
-        return resposta.status(400).sendFile(path.join(__dirname, 'public', '404.html'));
-    }
-
-    resposta.send(`
+        resposta.send(`
         <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -84,6 +92,7 @@ app.post('/contato', (requisicao, resposta) => {
             <p><strong>Assunto:</strong> ${assunto}</p>
             <p><strong>Mensagem:</strong> ${mensagem}</p>
             <a href="/contato">Voltar ao formulário de contato</a>
+            <a href="/">Voltar à página inicial</a>
         </div>
     </main>
     <footer>
@@ -93,14 +102,21 @@ app.post('/contato', (requisicao, resposta) => {
 </body>
 </html>
         `);
-});
+    })
+    .all((requisicao, resposta) => {
+        resposta.status(405).send('Método não permitido');
+    });
 
-app.get('/api/lanches', (requisicao, resposta) => {
-    resposta.status(200).json(lanches);
-});
+app.route('/api/lanches')
+    .get((requisicao, resposta) => {
+        resposta.status(200).json(lanches);
+    })
+    .all((requisicao, resposta) => {
+        resposta.status(405).send('Método não permitido');
+    });
 
 app.use((requisicao, resposta) => {
-  resposta.redirect('/not-found');
+    resposta.redirect('/not-found');
 });
 
 app.listen(port, () => { //indica onde o servidor roda
